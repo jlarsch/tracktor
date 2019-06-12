@@ -27,7 +27,7 @@ def colour_to_thresh(frame, block_size = 31, offset = 25):
     thresh: ndarray, shape(n_rows, n_cols, 1)
         binarised(0,255) image
     """
-    blur = cv2.blur(frame, (5,5))
+    blur = cv2.blur(frame, (10,10))
     gray = cv2.cvtColor(blur, cv2.COLOR_BGR2GRAY)
     thresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, block_size, offset)
     return thresh
